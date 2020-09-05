@@ -5,11 +5,11 @@ MIAUH petshop is a solution developed for petshop store owners.
 
 ## Functionalities
 
-<p align="center"><img src="./board.png" width="400"></p>
+<p align="center"><img src="./board.png" width="800"></p>
 
 ## Database
 
-<p align="center"><img src="./database.png" width="400"></p>
+<p align="center"><img src="./database.png" width="800"></p>
 
 ## Tech Stack
 
