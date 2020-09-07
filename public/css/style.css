@@ -130,3 +130,7 @@
   .subscribe-form .form-control {
     background: #5356b1; }
   
+
+.d-flex{
+  display: block !important;
+}
