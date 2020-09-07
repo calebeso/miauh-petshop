@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
     $(document).ready( function () {
-    $('#table_id').dataTable();
+    $('#table_id').DataTable();
 } );
 </script>
  <div class="container">
@@ -16,11 +16,12 @@
                 Users
                 </div>
                 <div class="card-body">
-                <table id="table_id" class="display">
+                <table id="table_id" class="table table-striped display">
     <thead>
         <tr>
             <th>Nome</th>
             <th>E-mail</th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +29,10 @@
         <tr>
             <td>{{ $user->full_name }}</td>
             <td>{{ $user->email }}</td>
+            <td>
+               <a href="{{ route('admin.users.edit', $user->id) }}"><button type="button" class="btn btn-primary">Editar</button></a>
+               <a href="{{ route('admin.users.destroy', $user->id) }}"><button type="button" class="btn btn-danger">Excluir</button></a>
+            </td>
         </tr>
         @endforeach
     </tbody>
