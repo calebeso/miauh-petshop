@@ -23,15 +23,24 @@
                 </button>
             </div>
             <div class="h-100 p-4">
-                <h1><a href="index.html" class="logo">Flash</a></h1>
+                <h1><a href="index.html" class="logo">MI(AU)</a></h1>
                 <ul class="list-unstyled components mb-5">
 
                     <li class="active">
                         <a href="{{ route('home') }}"><span class="fa fa-home mr-3"></span> Home</a>
                     </li>
-                    <li>
-                        <a href="{{ route('admin.users.index') }}"><span class="fa fa-user mr-3"></span> Usuários </a>
-                    </li>
+                    @can('manage-user')
+                    <div class="dropdown mr-3">
+                    <span class="fa fa-user mr-3"></span>    
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            {{__('Usuários')}}
+                        </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ route('admin.users.index') }}">{{__('Todos os usuários')}}</a>
+                        <a href="" class="dropdown-item">{{__('Usuários bloqueados')}}</a>
+                    </div>
+                    </div>
+                    @endcan
                     <li>
                         <a href="#"><span class="fa fa-briefcase mr-3"></span> Portfolio</a>
                     </li>

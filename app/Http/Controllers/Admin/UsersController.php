@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Model\User;
 use App\Model\Role;
+use Gate;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -95,6 +96,9 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->roles()->detach();
+        $user->delete();
+        
+        return redirect()->route('admin.users.index');
     }
 }
