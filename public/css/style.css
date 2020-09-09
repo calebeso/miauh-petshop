@@ -1,5 +1,5 @@
 #sidebar {
-    min-width: 270px;
+    min-width: 230px;
     max-width: 270px;
     background: #494ca2;
     color: #fff;
@@ -12,7 +12,7 @@
     #sidebar.active {
       margin-left: -270px; }
       #sidebar.active .custom-menu {
-        margin-right: -50px; }
+        margin-right: -90px; }
     #sidebar h1 {
       margin-bottom: 20px;
       font-weight: 700; }

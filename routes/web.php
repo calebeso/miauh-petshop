@@ -15,6 +15,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Register User 
 Route::group(array('middleware' => ['auth', 'can:manage-user']), function () {
     Route::get('/register', 'Auth\RegisterController@index')->name('register');
+    Route::post('/register', 'Auth\RegisterController@create')->name('register.submit');
 });
 
 //Admin Routes
