@@ -49,6 +49,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('admin.users.index') }}">{{__('Todos os usuários')}}</a>
                                 <a href="{{ route('register') }}" class="dropdown-item">{{__('Cadastrar usuários')}}</a>
+                                <a href="{{ route('admin.blocked-users') }}" class="dropdown-item">{{__('Usuários bloqueados')}}</a>
                             </div>
                         </div>
                         @endcan

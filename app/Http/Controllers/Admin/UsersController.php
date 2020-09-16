@@ -69,7 +69,7 @@ class UsersController extends Controller
     {
         $roles = Role::all();
         return view('admin.users.edit')->with([
-            'user' => $user, 
+            'user' => $user,
             'roles' => $roles
         ]);
     }
@@ -98,7 +98,20 @@ class UsersController extends Controller
     {
         $user->roles()->detach();
         $user->delete();
-        
+
         return redirect()->route('admin.users.index');
+    }
+
+    public function listBlockedUsers()
+    {
+
+        $users = User::onlyTrashed()->get();
+        return view('admin.users.blocked-users')->with('users', $users);
+    }
+
+    public function restoreBlockedUsers($id)
+    {
+        $users = User::withTrashed()->find($id)->restore();
+        return redirect(route('admin.users.index'))->with('users', $users);
     }
 }
