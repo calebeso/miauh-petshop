@@ -109,9 +109,15 @@ class UsersController extends Controller
         return view('admin.users.blocked-users')->with('users', $users);
     }
 
-    public function restoreBlockedUsers($id)
+    public function restoreBlockedUsers($id, User $user)
     {
+        
         $users = User::withTrashed()->find($id)->restore();
+        $role = Role::select('id')->where('description', 'user')->first();
+        
+        $user = User::find($id);
+        $user->roles()->attach($role);
+        
         return redirect(route('admin.users.index'))->with('users', $users);
     }
 }
