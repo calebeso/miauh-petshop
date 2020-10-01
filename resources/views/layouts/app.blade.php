@@ -53,9 +53,16 @@
                             </div>
                         </div>
                         @endcan
-                        <li>
-                            <a href="#"><span class="fa fa-briefcase mr-3"></span> Portfolio</a>
-                        </li>
+                        <div class="dropdown mr-3">
+                            <span class="fa fa-user mr-3"></span>
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                {{__('Serviços')}}
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('service.list-services') }}">{{__('Todos os serviços')}}</a>
+                                <a href="{{ route('service.create-service') }}" class="dropdown-item">{{__('Cadastrar serviço')}}</a>
+                            </div>
+                        </div>
                         <li>
                             <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
                         </li>

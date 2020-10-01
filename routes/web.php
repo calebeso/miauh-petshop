@@ -26,3 +26,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::get('/usuarios-bloqueados', 'UsersController@listBlockedUsers')->name('blocked-users');
     Route::get('/usuarios-bloqueados/{id}', 'UsersController@restoreBlockedUsers')->name('restore-users');
 });
+
+//Service Routes
+Route::namespace('Services')->prefix('service')->name('service.')->group(function() {
+    Route::get('/servicos', 'ServicesController@index')->name('list-services');
+    Route::get('/cadastrar-servico', 'ServicesController@create')->name('create-service');
+    Route::post('/servicos', 'ServicesController@store')->name('store');
+    Route::delete('/servicos/{id}', 'ServicesController@destroy')->name('delete');
+    Route::get('/editar-servico/{service}', 'ServicesController@edit')->name('edit');
+    Route::put('/editar-servico/{service}', 'ServicesController@update')->name('update');
+});
