@@ -1,28 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/nav.js') }}" defer></script>
-
-
-    <!-- Styles -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-
 <body>
     <div id="app">
         <div class="wrapper d-flex align-items-stretch">
@@ -42,7 +20,7 @@
                         </li>
                         @can('manage-user')
                         <div class="dropdown mr-3">
-                            <span class="fa fa-user mr-3"></span>
+                            <i class="fa fa-user"></i>
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 {{__('Usuários')}}
                             </button>
@@ -52,9 +30,20 @@
                                 <a href="{{ route('admin.blocked-users') }}" class="dropdown-item">{{__('Usuários bloqueados')}}</a>
                             </div>
                         </div>
-                        @endcan
                         <div class="dropdown mr-3">
-                            <span class="fa fa-user mr-3"></span>
+                            <i class="fa fa-plus-circle "></i>
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                {{__('Produtos')}}
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('products.list-products') }}">{{__('Todos os produtos')}}</a>
+                                <a href="{{ route('products.create-product') }}" class="dropdown-item">{{__('Cadastrar produto')}}</a>
+                                <a class="dropdown-item" href="{{ route('categories.list-categories') }}">{{__('Todas as categorias')}}</a>
+                                <a href="{{ route('categories.create-category') }}" class="dropdown-item">{{__('Cadastrar categoria')}}</a>
+                            </div>
+                        </div>
+                        <div class="dropdown mr-3">
+                            <i class="fa fa-plus-circle "></i>
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 {{__('Serviços')}}
                             </button>
@@ -63,6 +52,7 @@
                                 <a href="{{ route('service.create-service') }}" class="dropdown-item">{{__('Cadastrar serviço')}}</a>
                             </div>
                         </div>
+                        @endcan
                         <li>
                             <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
                         </li>
