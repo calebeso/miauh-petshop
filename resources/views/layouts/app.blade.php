@@ -36,12 +36,14 @@
                                 {{__('Produtos')}}
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('admin.products.index') }}">{{__('Todos os produtos')}}</a>
+                                <a class="dropdown-item" href="{{ route('products.list-products') }}">{{__('Todos os produtos')}}</a>
+                                <a href="{{ route('products.create-product') }}" class="dropdown-item">{{__('Cadastrar produto')}}</a>
+                                <a class="dropdown-item" href="{{ route('categories.list-categories') }}">{{__('Todas as categorias')}}</a>
+                                <a href="{{ route('categories.create-category') }}" class="dropdown-item">{{__('Cadastrar categoria')}}</a>
                             </div>
                         </div>
-                        @endcan
                         <div class="dropdown mr-3">
-                            <span class="fa fa-user mr-3"></span>
+                            <i class="fa fa-plus-circle "></i>
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 {{__('Serviços')}}
                             </button>
@@ -50,6 +52,7 @@
                                 <a href="{{ route('service.create-service') }}" class="dropdown-item">{{__('Cadastrar serviço')}}</a>
                             </div>
                         </div>
+                        @endcan
                         <li>
                             <a href="#"><span class="fa fa-sticky-note mr-3"></span> Blog</a>
                         </li>

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Model\Category;
 
 class CategoryController extends Controller
@@ -43,7 +44,7 @@ class CategoryController extends Controller
             'description' => $request->get('description')
         ]);
         $category->save();
-        return redirect()->route('admin.products.category.index')->with('success', 'Categoria salva!');
+        return redirect('categories/categories')->with('success', 'Categoria salva!');
     }
 
     /**
@@ -63,9 +64,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.products.edit-category')->with(['category' => $category]);
     }
 
     /**
@@ -75,9 +76,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->description = $request->description;
+        $category->save();
+
+        return redirect('/categories/categories');
     }
 
     /**

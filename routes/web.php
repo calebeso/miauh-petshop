@@ -24,10 +24,28 @@ Route::group(array('middleware' => ['auth', 'can:manage-user']), function () {
 //Admin Routes
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-user')->group(function () {
     Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
-    Route::resource('/categories', 'CategoryController');
-    Route::resource('/products', 'ProductController');
     Route::get('/usuarios-bloqueados', 'UsersController@listBlockedUsers')->name('blocked-users');
     Route::get('/usuarios-bloqueados/{id}', 'UsersController@restoreBlockedUsers')->name('restore-users');
+});
+
+//Products Routes
+Route::namespace('Products')->prefix('products')->name('products.')->group(function() {
+    Route::get('/products', 'ProductController@index')->name('list-products');
+    Route::get('/add-product', 'ProductController@create')->name('create-product');
+    Route::post('/products', 'ProductController@store')->name('store');
+    Route::delete('/products/{id}', 'ProductController@destroy')->name('delete');
+    Route::get('/edit-product/{product}', 'ProductController@edit')->name('edit');
+    Route::put('/edit-product/{product}', 'ProductController@update')->name('update');
+});
+
+//Categories Routes
+Route::namespace('Products')->prefix('categories')->name('categories.')->group(function() {
+    Route::get('/categories', 'CategoryController@index')->name('list-categories');
+    Route::get('/add-category', 'CategoryController@create')->name('create-category');
+    Route::post('/categoies', 'CategoryController@store')->name('store');
+    Route::delete('/categoies/{id}', 'CategoryController@destroy')->name('delete');
+    Route::get('/edit-category/{category}', 'CategoryController@edit')->name('edit');
+    Route::put('/edit-category/{category}', 'CategoryController@update')->name('update');
 });
 
 //Service Routes

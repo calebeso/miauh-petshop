@@ -15,12 +15,12 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('admin.categories.store') }}">
+      <form method="post" action="{{ route('categories.store') }}">
           @csrf
-          <div class="form-group">    
-              <label for="first_name">Category:</label>
-              <input type="text" class="form-control" name="first_name"/>
-          </div>                    
+          <div class="md-form mt-3">
+                    <input type="text" id="materialSubscriptionFormPasswords" name="description" class="form-control">
+                    <label for="materialSubscriptionFormPasswords">Descrição</label>
+                </div>               
           <button type="submit" class="btn btn-primary-outline">Add category</button>
       </form>
   </div>

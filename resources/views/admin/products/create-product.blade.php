@@ -6,7 +6,7 @@
     $(document).ready(function() {
         $('#table_id').DataTable({
             buttons: [{
-                text: 'Cadastrar usuário',
+                text: 'Cadastrar Produto',
 
             }]
         });
@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row justify-content center">
         <div class="col-md-6">
-            <form action="{{ route('service.store') }}" method="POST">
+            <form action="{{ route('products.store') }}" method="POST">
                 @csrf
                 <div class="md-form mt-3">
                     <input type="text" id="materialSubscriptionFormPasswords" name="description" class="form-control">
@@ -28,7 +28,13 @@
                     <label for="materialSubscriptionFormEmail">Preço</label>
                 </div>
 
-                <button class="btn" type="submit">Salvar</button>
+                <select class="form-control" name="category_id">
+                    @foreach($categories as $categoryID => $category)
+                        <option value="{{$categoryID}}">{{$category}}</option>
+                    @endforeach
+                </select>
+
+                <button class="btn btn-primary" type="submit">Salvar</button>
 
             </form>
         </div>

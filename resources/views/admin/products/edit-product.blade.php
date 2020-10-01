@@ -10,10 +10,10 @@
                     {{__('Editar Serviço')}}
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('service.update', $service) }}" method="POST">
+                    <form action="{{ route('products.update', $product) }}" method="POST">
                         <div class="form-group">
                             <div class="col-md-8">
-                                <input type="text" name="description" value="{{ $service->description }}" class="form-control @error('description') is-invalid @enderror" required>
+                                <input type="text" name="description" value="{{ $product->description }}" class="form-control @error('description') is-invalid @enderror" required>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8">
-                                <input type="number" name="price" value="{{ $service->price }}" class="form-control @error('price') is-invalid @enderror" required>
+                                <input type="number" name="price" value="{{ $product->price }}" class="form-control @error('price') is-invalid @enderror" required>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -34,6 +34,13 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <select class="form-control" name="category_id">
+                            @foreach($categories as $categoryID => $category)
+                                <option value="{{$categoryID}}">{{$category}}</option>
+                            @endforeach
+                        </select>
+
                         @csrf
                         {{ method_field('PUT') }}
                         <div>

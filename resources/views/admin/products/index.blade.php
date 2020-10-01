@@ -19,7 +19,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Produtos
+                    {{__('Produtos')}} 
                 </div>
                 <div class="card-body">
                     <table id="table_id" class="table table-striped display">
@@ -35,11 +35,12 @@
                             <tr>
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->price }}</td>
+                                <td>{{ $product->category_id }}</td>
                                 <td>
-                                    <a href="{{ route('admin.products.edit', $product->id) }}"><button type="button" class="btn btn-primary">Editar</button></a>
-                                    <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="float-left">
-                                        @csrf
-                                        {{ method_field('DELETE') }} 
+                                    <a type="button" class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Editar</button></a>
+                                    <form method="POST" action="{{ route('products.delete', $product->id) }}" class="float-left">    
+                                    @csrf
+                                    {{ method_field('DELETE') }} 
                                     <button type="submit" class="btn btn-danger">Excluir</button>
                                     </form>
                                 </td>
