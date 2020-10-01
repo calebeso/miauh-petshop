@@ -61,7 +61,6 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('service.list-services') }}">{{__('Todos os serviços')}}</a>
                                 <a href="{{ route('service.create-service') }}" class="dropdown-item">{{__('Cadastrar serviço')}}</a>
-                                <a href="{{ route('admin.blocked-users') }}" class="dropdown-item">{{__('Usuários bloqueados')}}</a>
                             </div>
                         </div>
                         <li>
