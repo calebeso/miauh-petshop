@@ -1,7 +1,6 @@
 @extends('layouts.app')
+@extends('layouts.config')
 @section('content')
-
-
 
 <script type="text/javascript">
     $(document).ready(function() {

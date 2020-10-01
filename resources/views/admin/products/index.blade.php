@@ -7,7 +7,7 @@
         $('#table_id').DataTable({
             buttons: [
                 {
-                    text: 'Cadastrar usuário',
+                    text: 'Cadastrar produto',
                   
                 }
             ]
@@ -19,30 +19,29 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    Users
+                    Produtos
                 </div>
                 <div class="card-body">
                     <table id="table_id" class="table table-striped display">
                         <thead>
                             <tr>
                                 <th>Nome</th>
-                                <th>E-mail</th>
-                                <th>Opções</th>
+                                <th>Preço</th>
+                                <th>Categoria</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($users as $user)
+                            @foreach($products as $product)
                             <tr>
-                            
-                                <td>{{ $user->full_name }}</td>
-                                <td>{{ $user->email }}</td>
-                                
+                                <td>{{ $product->description }}</td>
+                                <td>{{ $product->price }}</td>
                                 <td>
-                                <form action="{{ route('admin.restore-users', $user->id) }}" method="POST" class="float-left">
-                                            @csrf
-                                            {{ method_field('GET') }}
-                                            <button type="submit" class="btn btn-success">{{_('Habilitar')}}</button>
-                                        </form> 
+                                    <a href="{{ route('admin.products.edit', $product->id) }}"><button type="button" class="btn btn-primary">Editar</button></a>
+                                    <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="float-left">
+                                        @csrf
+                                        {{ method_field('DELETE') }} 
+                                    <button type="submit" class="btn btn-danger">Excluir</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach
