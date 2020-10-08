@@ -46,7 +46,7 @@ class ServicesController extends Controller
         $data->description = $request->description;
         $data->price = $request->price;
         $data->save();
-        return redirect('service/servicos');
+        return redirect('service/servicos')->with('success', 'Serviço criado com sucesso!');
     }
 
     /**
@@ -78,7 +78,7 @@ class ServicesController extends Controller
         $service->price = $request->price;
         $service->save();
 
-        return redirect('/service/servicos');
+        return redirect('/service/servicos')->with('success', 'Serviço alterado com sucesso!');
     }
 
     /**
