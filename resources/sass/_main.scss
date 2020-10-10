@@ -1,0 +1,72 @@
+body{
+  background: $body-bg;
+  font-family: $openSans;
+}
+
+.miauh-sidebar {
+    background: $mainBlue;
+    color: #fff;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+
+    .logo {
+        img{
+          max-width:200px;
+        }
+    }
+
+    .sidebar-sticky{
+        height: 100%;
+    }
+    
+    ul{
+        height: 100%;
+        
+        li{
+            a{
+                color: $white;
+            }
+           
+        }
+
+        .miau-sidebar-dropdown{
+            background: #576a79;
+            border-radius: 0px;
+            width: 100%;
+            border:none;
+        }
+    }
+}
+
+.miau-dashboard{
+    .miau-card{
+        height:337px;
+        h1{
+            font-weight: 900;
+            font-size: 20px;
+            color: $mainBlue;
+            padding: 25px;
+            text-transform: uppercase;
+        }
+        
+
+        &:nth-child(1){
+            background: #e3fdfd;
+        }
+        &:nth-child(2){
+            background: #cbf1f5;
+        }
+        &:nth-child(3){
+            background: #a6e3e9;
+        }
+        &:nth-child(4){
+            background:#71c9ce;
+        }
+    }
+}
+
+footer{
+    background: $gray;
+    min-height: 30px;
+}
