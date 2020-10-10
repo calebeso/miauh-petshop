@@ -11,7 +11,6 @@ Route::get('/', function () {
 Auth::routes();
 
 //Dashboard home
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Register User 
