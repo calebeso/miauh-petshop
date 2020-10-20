@@ -34,7 +34,7 @@
                             @foreach($products as $product)
                             <tr>
                                 <td>{{ $product->description }}</td>
-                                <td>{{ $product->price }}</td>
+                                <td>{{ number_format($product->price, 2) }}</td>
                                 <td>{{ $product->category_id }}</td>
                                 <td>
                                     <a type="button" class="btn btn-primary" href="{{ route('products.edit', $product->id) }}">Editar</button></a>
