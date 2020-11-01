@@ -13,6 +13,7 @@
                     <form action="{{ route('service.update', $service) }}" method="POST">
                         <div class="form-group">
                             <div class="col-md-8">
+                                <label for="description">{{__('Descrição')}}</label>
                                 <input type="text" name="description" value="{{ $service->description }}" class="form-control @error('description') is-invalid @enderror" required>
 
                                 @error('name')
@@ -25,6 +26,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8">
+                                <label for="price">{{__('Preço')}}</label>
                                 <input type="number" name="price" value="{{ $service->price }}" class="form-control @error('price') is-invalid @enderror" required>
 
                                 @error('name')
@@ -36,8 +38,8 @@
                         </div>
                         @csrf
                         {{ method_field('PUT') }}
-                        <div>
-                        <button type="submit" class="btn btn register">
+                        <div class="col-md-8">
+                        <button type="submit" class="btn btn-primary register">
                             Atualizar
                         </button>
                     </form>
