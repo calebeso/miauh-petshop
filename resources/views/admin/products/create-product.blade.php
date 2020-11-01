@@ -18,23 +18,31 @@
             <form action="{{ route('products.store') }}" method="POST">
                 @csrf
                 <div class="md-form mt-3">
-                    <input type="text" id="materialSubscriptionFormPasswords" name="description" class="form-control">
                     <label for="materialSubscriptionFormPasswords">Descrição</label>
+                    <input type="text" id="materialSubscriptionFormPasswords" name="description" class="form-control">
+                    
                 </div>
 
                 <!-- E-mai -->
                 <div class="md-form">
-                    <input type="number" id="materialSubscriptionFormEmail" name="price"class="form-control">
                     <label for="materialSubscriptionFormEmail">Preço</label>
+                    <input type="number" id="materialSubscriptionFormEmail" name="price"class="form-control">
+                    
                 </div>
 
+                <div class="md-form mt-3">
+                <p>Categoria</p>
                 <select class="form-control" name="category_id">
+                    @if($categories->count() > 1))
+                        <option value="" data-code="">{{__('Selecione uma categoria')}}</option>
+                    @endif
                     @foreach($categories as $categoryID => $category)
                         <option value="{{$categoryID}}">{{$category}}</option>
                     @endforeach
                 </select>
+                </div>
 
-                <button class="btn btn-primary" type="submit">Salvar</button>
+                <button class="btn btn-primary mt-3" type="submit">Salvar</button>
 
             </form>
         </div>
