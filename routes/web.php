@@ -56,3 +56,8 @@ Route::namespace('Services')->prefix('service')->name('service.')->group(functio
     Route::get('/editar-servico/{service}', 'ServicesController@edit')->name('edit');
     Route::put('/editar-servico/{service}', 'ServicesController@update')->name('update');
 });
+
+//Costumer Routes
+Route::namespace('Costumer')->prefix('costumer')->name('costumer.')->group(function() {
+    Route::get('/clientes', 'CostumerController@index')->name('list-costumers');
+});
