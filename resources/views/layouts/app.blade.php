@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid" id="app">
         <div class="row">
             @if(Auth::check())
             <nav id="sidebar" class="miauh-sidebar col-md-3 col-lg-2 d-md-block sidebar pl-0">
