@@ -13,6 +13,7 @@
                     <form action="{{ route('products.update', $product) }}" method="POST">
                         <div class="form-group">
                             <div class="col-md-8">
+                                <label for="description">{{__('Descrição')}}</label>
                                 <input type="text" name="description" value="{{ $product->description }}" class="form-control @error('description') is-invalid @enderror" required>
 
                                 @error('name')
@@ -25,6 +26,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8">
+                                <label for="description">{{__('Preço')}}</label>
                                 <input type="number" name="price" value="{{ $product->price }}" class="form-control @error('price') is-invalid @enderror" required>
 
                                 @error('name')
@@ -35,18 +37,24 @@
                             </div>
                         </div>
 
-                        <select class="form-control" name="category_id">
-                            @foreach($categories as $categoryID => $category)
+                        <div class="col-md-8">
+                            <label for="category">{{__('Categoria')}}</label>
+                            <select class="form-control" name="category_id">
+                                @if($categories->count() > 1))
+                                <option value="" data-code="">{{__('Selecione uma categoria')}}</option>
+                                @endif
+                                @foreach($categories as $categoryID => $category)
                                 <option value="{{$categoryID}}">{{$category}}</option>
-                            @endforeach
-                        </select>
+                                @endforeach
+                            </select>
+                        </div>
 
                         @csrf
                         {{ method_field('PUT') }}
-                        <div>
-                        <button type="submit" class="btn btn register">
-                            Atualizar
-                        </button>
+                        <div class="col-md-8 mt-3">
+                            <button type="submit" class="btn btn-primary register">
+                                Atualizar
+                            </button>
                     </form>
                 </div>
             </div>
