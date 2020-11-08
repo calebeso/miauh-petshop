@@ -24,26 +24,26 @@ Route::post('register', 'Auth\RegisterController@register');
 Route::get('products', function() {
     // If the Content-Type and Accept headers are set to 'application/json', 
     // this will return a JSON structure. This will be cleaned up later.
-    return Products::all();
+    return Product::all();
 });
  
 Route::get('products/{id}', function($id) {
-    return Products::find($id);
+    return Product::find($id);
 });
 
 Route::post('products', function(Request $request) {
-    return Products::create($request->all);
+    return Product::create($request->all);
 });
 
 Route::put('products/{id}', function(Request $request, $id) {
-    $product = Products::findOrFail($id);
+    $product = Product::findOrFail($id);
     $product->update($request->all());
 
     return $product;
 });
 
 Route::delete('products/{id}', function($id) {
-    Products::find($id)->delete();
+    Product::find($id)->delete();
 
     return 204;
 });
