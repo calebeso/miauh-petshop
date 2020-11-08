@@ -1,17 +1,8 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-// Util
-@import './variables';
-@import './mixins';
-@import './typography';
+// Variables
+@import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-// Main Layout
-@import './main';
-
-// Login Layout
-@import './login';
-
