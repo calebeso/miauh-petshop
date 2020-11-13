@@ -26,7 +26,7 @@ class CostumerController extends Controller
      */
     public function create()
     {
-        return view('admin.costumers.create-costumer');
+        return view('admin.costumers.create');
     }
 
     /**
