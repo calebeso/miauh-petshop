@@ -37,18 +37,15 @@ class CostumerController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'full_name' => 'required', 
+            'phone' => 'required|regex:/(01)[0-9]{9}/',
+            'cpf' => 'required|formato_cpf'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models  $models
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Models $models)
-    {
-        //
+        $costumers = Costumer::create($request->all());
+        return redirect('costumer/clientes');
+
     }
 
     /**

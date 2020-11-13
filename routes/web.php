@@ -60,4 +60,6 @@ Route::namespace('Services')->prefix('service')->name('service.')->group(functio
 //Costumer Routes
 Route::namespace('Costumer')->prefix('costumer')->name('costumer.')->group(function() {
     Route::get('/clientes', 'CostumerController@index')->name('list-costumers');
+    Route::get('/cadastrar-cliente', 'CostumerController@create')->name('create-costumer');
+    Route::post('/clientes', 'CostumerController@store')->name('store');
 });
