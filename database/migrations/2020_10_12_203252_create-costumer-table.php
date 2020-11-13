@@ -18,7 +18,7 @@ class CreateCostumerTable extends Migration
             $table->timestamps();
             $table->string('full_name');
             $table->string('phone');
-            $table->integer('cpf');
+            $table->string('cpf');
 
         });
     }
