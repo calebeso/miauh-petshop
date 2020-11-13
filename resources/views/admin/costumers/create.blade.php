@@ -18,22 +18,30 @@
             <form action="{{ route('costumer.store') }}" method="POST">
                 @csrf
                 <div class="md-form mt-3">
-                    <label for="materialSubscriptionFormPasswords">Nome completo</label>
-                    <input type="text" id="materialSubscriptionFormPasswords" name="full_name" class="form-control">
-                    
+
+                    <label for="full_name">Nome completo</label>
+                    <input type="text" id="full_name" class="form-control @error('full_name') is-invalid @enderror" name="full_name" class="form-control">
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('full_name') }}</strong>
+                    </span>
+
                 </div>
 
                 <div class="md-form">
-                    <label for="materialSubscriptionFormEmail">Telefone</label>
-                    <input type="text" id="materialSubscriptionFormEmail" name="phone"class="form-control">
+                    <label for="phone">Telefone</label>
+                    <input type="text" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" class="form-control">
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('phone') }}</strong>
+                    </span>
                 </div>
 
                 <div class="md-form">
-                    <label for="materialSubscriptionFormEmail">CPF</label>
-                    <input type="text" id="materialSubscriptionFormEmail" name="cpf"class="form-control">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" class="form-control @error('cpf') is-invalid @enderror" name="cpf">
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('cpf') }}</strong>
+                    </span>
                 </div>
-
-                
 
                 <button class="btn btn-primary mt-3" type="submit">Salvar</button>
 

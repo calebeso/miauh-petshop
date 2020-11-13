@@ -28,6 +28,7 @@
                                 <th>Nome</th>
                                 <th>Telefone</th>
                                 <th>CPF</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>

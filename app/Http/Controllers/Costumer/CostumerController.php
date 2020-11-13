@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Costumer;
 use App\Http\Controllers\Controller;
 use App\Model\Costumer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CostumerController extends Controller
 {
@@ -37,13 +38,32 @@ class CostumerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'full_name' => 'required', 
-            'phone' => 'required|regex:/(01)[0-9]{9}/',
-            'cpf' => 'required|formato_cpf'
-        ]);
 
-        $costumers = Costumer::create($request->all());
+        $data = $request->all();
+
+        $validate = [
+            'full_name' => 'required', 
+            'phone' => 'required',
+            'cpf' => 'required|formato_cpf'
+        ];
+
+        $custom = [
+            'full_name.required' => 'O campo nome é obrigatório!',
+            'phone.required' => 'O campo telefone é obrigatório!',
+            'cpf.formato_cpf' => 'O formato do CPF está incorreto!',
+            'cpf.required' => 'O campo CPF é obrigatório!'
+        ];
+
+        $validator = Validator::make($request->all(), $validate, $custom);
+
+        if($validator->fails()){
+            return redirect('costumer/cadastrar-cliente')->withErrors($validator);
+        }
+
+        $data = new Costumer();
+        $input = $request->all();
+        $data->fill($input)->save();
+
         return redirect('costumer/clientes');
 
     }

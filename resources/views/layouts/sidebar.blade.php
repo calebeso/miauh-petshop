@@ -10,13 +10,13 @@
             <span>{{__('Clientes')}}</span>
         </h6>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('costumer.list-costumers') }}">
+            <a class="nav-link" href="{{ route('costumer.list') }}">
                 <span class="fa fa-user"></span>
                 {{__('Todos os clientes')}}
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('costumer.create-costumer') }}">
+            <a class="nav-link" href="{{ route('costumer.create') }}">
                 <span class="fa fa-plus-circle"></span> {{__('Cadastrar cliente')}}
             </a>
         </li>
