@@ -97,8 +97,9 @@ class CostumerController extends Controller
      * @param  \App\Models  $models
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Models $models)
+    public function destroy($id)
     {
-        //
+        Costumer::find($id)->delete();
+        return redirect('costumer/clientes');
     }
 }
