@@ -74,9 +74,9 @@ class CostumerController extends Controller
      * @param  \App\Models  $models
      * @return \Illuminate\Http\Response
      */
-    public function edit(Models $models)
+    public function edit(Costumer $costumer)
     {
-        //
+        return view('admin.costumers.edit')->with(['costumer' => $costumer]);
     }
 
     /**
@@ -86,9 +86,33 @@ class CostumerController extends Controller
      * @param  \App\Models  $models
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Models $models)
+    public function update(Request $request, $id)
     {
-        //
+        $data = Costumer::findOrFail($id);
+        $input = $request->all();
+
+        $validate = [
+            'full_name' => 'required', 
+            'phone' => 'required',
+            'cpf' => 'required|formato_cpf'
+        ];
+
+        $custom = [
+            'full_name.required' => 'O campo nome é obrigatório!',
+            'phone.required' => 'O campo telefone é obrigatório!',
+            'cpf.formato_cpf' => 'O formato do CPF está incorreto!',
+            'cpf.required' => 'O campo CPF é obrigatório!'
+        ];
+
+        $validator = Validator::make($request->all(), $validate, $custom);
+
+        if($validator->fails()){
+            return redirect('costumer/cadastrar-cliente')->withErrors($validator);
+        }
+
+        $data->update($input);
+
+        return redirect('costumer/clientes');
     }
 
     /**

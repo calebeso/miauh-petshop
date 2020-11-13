@@ -36,6 +36,19 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8">
+                                <label for="cpf">{{__('CPF')}}</label>
+                                <input type="text" name="cpf" value="{{ $costumer->cpf }}" class="form-control @error('cpf') is-invalid @enderror" required>
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
                         @csrf
                         {{ method_field('PUT') }}
                         <div class="col-md-8">
