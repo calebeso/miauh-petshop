@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnimalTable extends Migration
+class AlterTableAnimalsAddForeignkey extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateAnimalTable extends Migration
      */
     public function up()
     {
-        Schema::create('animals', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('animal_type');
-            $table->timestamps();
+        Schema::alter('animals', function(Blueprint $table){
+            $table->index('costumer_id');
+            $table->foreign('costumer_id')->references('id')->on('costumers')->onDelete('cascade');
         });
     }
 

@@ -11,4 +11,9 @@ class Costumer extends Model
         'phone',
         'cpf',
     ];
+
+    public function animals()
+    {
+        return $this->hasMany('App\Model\Animal');
+    }
 }

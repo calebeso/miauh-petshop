@@ -10,4 +10,9 @@ class Animal extends Model
         'name',
         'animal_type',
     ];
+
+    public function costumer()
+    {
+        return $this->belongsTo('App\Model\Costumer');
+    }
 }
