@@ -16,7 +16,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('admin.products.index-category')->with('categories', $categories);
+        return view('products.index-category')->with('categories', $categories);
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create-category');
+        return view('products.create-category');
     }
 
     /**
@@ -47,16 +47,6 @@ class CategoryController extends Controller
         return redirect('categories/categories')->with('success', 'Categoria salva!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -66,7 +56,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.products.edit-category')->with(['category' => $category]);
+        return view('products.edit-category')->with(['category' => $category]);
     }
 
     /**
