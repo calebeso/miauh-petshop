@@ -65,4 +65,13 @@ Route::namespace('Costumer')->prefix('costumer')->name('costumer.')->group(funct
     Route::get('/editar-cliente/{costumer}', 'CostumerController@edit')->name('edit');
     Route::put('/editar-cliente/{costumer}', 'CostumerController@update')->name('update');
     Route::delete('/cliente/{id}', 'CostumerController@destroy')->name('delete');
+  
+  //Animal Routes
+Route::namespace('Animal')->prefix('animal')->name('animal.')->group(function(){
+    Route::get('/animais', 'AnimalController@index')->name('list');
+    Route::get('/cadastrar', 'AnimalController@create')->name('create');
+    Route::post('/animais', 'AnimalController@store')->name('store');
+    Route::delete('/animais/{id}', 'AnimalController@destroy')->name('delete');
+    Route::get('/editar-animal/{animal}', 'AnimalController@edit')->name('edit');
+    Route::put('/editar-animal/{animal}', 'AnimalController@update')->name('update');
 });

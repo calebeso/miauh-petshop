@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Model\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,33 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('register', 'Auth\RegisterController@register');
+
+Route::get('products', function() {
+    // If the Content-Type and Accept headers are set to 'application/json', 
+    // this will return a JSON structure. This will be cleaned up later.
+    return Product::all();
+});
+ 
+Route::get('products/{id}', function($id) {
+    return Product::find($id);
+});
+
+Route::post('products', function(Request $request) {
+    return Product::create($request->all);
+});
+
+Route::put('products/{id}', function(Request $request, $id) {
+    $product = Product::findOrFail($id);
+    $product->update($request->all());
+
+    return $product;
+});
+
+Route::delete('products/{id}', function($id) {
+    Product::find($id)->delete();
+
+    return 204;
 });

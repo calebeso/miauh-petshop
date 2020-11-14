@@ -7,7 +7,25 @@
         </li>
         @can('manage-user')
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
-            <span>{{__('Clientes')}}</span>
+           
+ <span>{{__('Clientes')}}</span>
+ 
+ <span>{{__('Animais')}}</span>
+        </h6>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('animal.list') }}">
+                <span class="fa fa-paw"></span>
+                {{__('Todos os animais')}}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('animal.create') }}">
+                <span class="fa fa-plus-circle"></span> {{__('Cadastrar animais')}}
+            </a>
+        </li>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
+            <span>{{__('Usuários')}}</span>
         </h6>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('costumer.list') }}">
