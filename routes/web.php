@@ -66,6 +66,7 @@ Route::namespace('Costumer')->prefix('costumer')->name('costumer.')->group(funct
     Route::put('/editar-cliente/{costumer}', 'CostumerController@update')->name('update');
     Route::delete('/cliente/{id}', 'CostumerController@destroy')->name('delete');
   
+});
   //Animal Routes
 Route::namespace('Animal')->prefix('animal')->name('animal.')->group(function(){
     Route::get('/animais', 'AnimalController@index')->name('list');
