@@ -56,3 +56,14 @@ Route::namespace('Services')->prefix('service')->name('service.')->group(functio
     Route::get('/editar-servico/{service}', 'ServicesController@edit')->name('edit');
     Route::put('/editar-servico/{service}', 'ServicesController@update')->name('update');
 });
+
+
+//Animal Routes
+Route::namespace('Animals')->prefix('animal')->name('service.')->group(function(){
+    Route::get('/animais', 'AnimalController@index')->name('list');
+    Route::get('/cadastrar', 'AnimalController@create')->name('create');
+    Route::post('/animais', 'AnimalController@store')->name('store');
+    Route::delete('/animais/{id}', 'AnimalController@destroy')->name('delete');
+    Route::get('/editar-animal/{animal}', 'AnimalController@edit')->name('edit');
+    Route::put('/editar-animal/{animal}', 'AnimalController@update')->name('update');
+});
