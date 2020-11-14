@@ -17,7 +17,7 @@ class AnimalController extends Controller
     public function index()
     {
         $animals = Animal::all();
-        return view('admin.animal.index')->with('animals', $animals);
+        return view('animals.index')->with('animals', $animals);
     }
 
     /**
@@ -27,7 +27,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('admin.animals.create');
+        return view('animals.create');
     }
 
     /**
@@ -75,7 +75,7 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        return view('admin.animal.edit')->with(['animal' => $animal]);
+        return view('animals.edit')->with(['animal' => $animal]);
     }
 
     /**
@@ -120,6 +120,6 @@ class AnimalController extends Controller
     public function destroy($id)
     {
         Animal::find($id)->delete();
-        return redirect()->route('animals.list');
+        return redirect()->route('animal.list');
     }
 }

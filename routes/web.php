@@ -59,7 +59,7 @@ Route::namespace('Services')->prefix('service')->name('service.')->group(functio
 
 
 //Animal Routes
-Route::namespace('Animals')->prefix('animal')->name('service.')->group(function(){
+Route::namespace('Animal')->prefix('animal')->name('animal.')->group(function(){
     Route::get('/animais', 'AnimalController@index')->name('list');
     Route::get('/cadastrar', 'AnimalController@create')->name('create');
     Route::post('/animais', 'AnimalController@store')->name('store');
