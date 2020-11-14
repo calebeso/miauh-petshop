@@ -20,7 +20,7 @@ class ServicesController extends Controller
     public function index()
     {
         $services = Service::all();
-        return view('admin.services.index')->with('services', $services);
+        return view('services.index')->with('services', $services);
     }
 
     /**
@@ -30,7 +30,7 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        return view('admin.services.create-service');
+        return view('services.create-service');
     }
 
     /**
@@ -57,7 +57,7 @@ class ServicesController extends Controller
      */
     public function edit(Service $service)
     {
-        return view('admin.services.edit-service')->with(['service' => $service]);
+        return view('services.edit-service')->with(['service' => $service]);
     }
 
     /**
