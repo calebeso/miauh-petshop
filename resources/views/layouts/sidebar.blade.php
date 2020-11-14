@@ -7,7 +7,10 @@
         </li>
         @can('manage-user')
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
-            <span>{{__('Animais')}}</span>
+           
+ <span>{{__('Clientes')}}</span>
+ 
+ <span>{{__('Animais')}}</span>
         </h6>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('animal.list') }}">
@@ -25,21 +28,17 @@
             <span>{{__('Usuários')}}</span>
         </h6>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.users.index') }}">
+            <a class="nav-link" href="{{ route('costumer.list') }}">
                 <span class="fa fa-user"></span>
-                {{__('Todos os usuários')}}
+                {{__('Todos os clientes')}}
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">
-                <span class="fa fa-plus-circle"></span> {{__('Cadastrar usuários')}}
+            <a class="nav-link" href="{{ route('costumer.create') }}">
+                <span class="fa fa-plus-circle"></span> {{__('Cadastrar cliente')}}
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.blocked-users') }}">
-                <span class="fa fa-ban"></span> {{__('Usuários bloqueados')}}
-            </a>
-        </li>
+
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
             <span>{{__('Produtos')}}</span>
         </h6>
@@ -64,6 +63,7 @@
                 <span class="fa fa-plus-circle"></span> {{__('Cadastrar categoria')}}
             </a>
         </li>
+
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
             <span>{{__('Serviços')}}</span>
         </h6>
@@ -78,6 +78,28 @@
                 <span class="fa fa-plus-circle"></span> {{__('Cadastrar serviço')}}
             </a>
         </li>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
+            <span>{{__('Usuários')}}</span>
+        </h6>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.users.index') }}">
+                <span class="fa fa-user"></span>
+                {{__('Todos os usuários')}}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('register') }}">
+                <span class="fa fa-plus-circle"></span> {{__('Cadastrar usuários')}}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.blocked-users') }}">
+                <span class="fa fa-ban"></span> {{__('Usuários bloqueados')}}
+            </a>
+        </li>
+       
+       
         @endcan
         <li class="nav-item">
             <a href="{{ route('logout') }}" onclick="event.preventDefault();
