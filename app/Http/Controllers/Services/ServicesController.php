@@ -11,7 +11,6 @@ class ServicesController extends Controller
     public function index()
     {
         return Service::all();
-        
     }
 
     public function show(Service $service)
@@ -22,8 +21,8 @@ class ServicesController extends Controller
     public function store(Request $request)
     {
        $service = Service::create($request->all());
-
        return response()->json($service, 201);
+
     }
 
 
