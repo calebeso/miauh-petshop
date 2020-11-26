@@ -14,6 +14,6 @@ class Costumer extends Model
 
     public function animals()
     {
-        return $this->hasMany('App\Model\Animal');
+        return $this->hasMany('App\Model\Animal', 'costumer_id', 'id');
     }
 }

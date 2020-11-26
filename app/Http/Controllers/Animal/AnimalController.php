@@ -17,8 +17,8 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        $animals = Animal::all();
-        return view('animals.index')->with('animals', $animals);
+        $animals = Animal::with('costumers')->get();
+        return view('animals.index', compact('animals'));
     }
 
     /**
@@ -61,7 +61,6 @@ class AnimalController extends Controller
 
         $data = new Animal();
         $input = $request->all();
-        $data->costumer()->save($data);
         $data->fill($input)->save();
 
    

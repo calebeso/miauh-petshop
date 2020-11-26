@@ -34,6 +34,18 @@
                     </span>
                 </div>
 
+                <div class="md-form mt-3">
+                <p>Cliente</p>
+                <select class="form-control" name="costumer_id">
+                    @if($costumers->count() >= 1))
+                        <option value="" data-code="">{{__('Selecione um cliente')}}</option>
+                    @endif
+                    @foreach($costumers as $costumerID => $costumer)
+                        <option value="{{$costumer->id}}">{{$costumer->full_name}}</option>
+                    @endforeach
+                </select>
+                </div>
+
                 <button class="btn btn-primary mt-3" type="submit">Salvar</button>
 
             </form>

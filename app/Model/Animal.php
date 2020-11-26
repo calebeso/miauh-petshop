@@ -9,10 +9,11 @@ class Animal extends Model
     protected $fillable = [
         'name',
         'animal_type',
+        'costumer_id'
     ];
 
-    public function costumer()
+    public function costumers()
     {
-        return $this->belongsTo('App\Model\Costumer');
+        return $this->belongsTo('App\Model\Costumer', 'costumer_id', 'id');
     }
 }
