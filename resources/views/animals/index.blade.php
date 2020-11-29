@@ -27,13 +27,15 @@
                             <tr>
                                 <th>Nome</th>
                                 <th>Tipo do animal</th>
+                                <th>Dono/Responsavel</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($animals as $animal)
                             <tr>
                                 <td>{{ $animal->name }}</td>
-                                <td>{{ $animal->animal_type }}</td>
+                                <td>{{ $animal->animal_type }}</td>                                
+                                <td>{{ $animal->costumers->full_name }}</td>
                                 <td>
                                     <a type="button" class="btn btn-primary" href="{{ route('animal.edit', $animal->id) }}">Editar</button></a>
                                     <form method="POST" action="{{ route('animal.delete', $animal->id) }}" class="float-left">    

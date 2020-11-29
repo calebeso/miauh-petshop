@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Animal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Animal;
+use App\Model\Costumer;
 use Illuminate\Support\Facades\Validator;
 
 class AnimalController extends Controller
@@ -16,8 +17,8 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        $animals = Animal::all();
-        return view('animals.index')->with('animals', $animals);
+        $animals = Animal::with('costumers')->get();
+        return view('animals.index', compact('animals'));
     }
 
     /**
@@ -27,7 +28,8 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return view('animals.create');
+        $costumers = Costumer::all();
+        return view('animals.create', compact('costumers'));
     }
 
     /**
