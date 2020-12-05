@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Animal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Model\Product;
@@ -48,6 +49,7 @@ Route::delete('products/{id}', function($id) {
     return 204;
 });
 
+// Services API routes 
 Route::get('services', function() {
     return Service::all();
 });
@@ -69,6 +71,32 @@ Route::put('services/{id}', function(Request $request, $id) {
 
 Route::delete('services/{id}', function($id) {
     Service::find($id)->delete();
+
+    return 204;
+});
+
+//Animals API routes
+Route::get('animals', function() {
+    return Animal::all();
+});
+ 
+Route::get('animals/{id}', function($id) {
+    return Animal::find($id);
+});
+
+Route::post('animals', function(Request $request) {
+    return Animal::create($request->all);
+});
+
+Route::put('animals/{id}', function(Request $request, $id) {
+    $animal = Animal::findOrFail($id);
+    $animal->update($request->all());
+
+    return $animal;
+});
+
+Route::delete('animals/{id}', function($id) {
+    Animal::find($id)->delete();
 
     return 204;
 });
