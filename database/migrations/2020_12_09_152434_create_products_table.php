@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->float('price');
             $table->boolean('status', 0);
+            $table->integer('quantity');
             $table->bigInteger('category_id')->unsigned(); // this is working
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
