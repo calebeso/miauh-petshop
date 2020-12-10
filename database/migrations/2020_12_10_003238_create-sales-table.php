@@ -24,6 +24,7 @@ class CreateSalesTable extends Migration
             $table->foreign('service_id')->references('id')->on('services');
             $table->unsignedBigInteger('costumer_id');     
             $table->foreign('costumer_id')->references('id')->on('costumers');
+            $table->float('total');
 
         });
     }
