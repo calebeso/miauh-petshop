@@ -77,7 +77,8 @@ Route::namespace('Animal')->prefix('animal')->name('animal.')->group(function(){
     Route::put('/editar-animal/{animal}', 'AnimalController@update')->name('update');
 });
 
-  //Animal Routes
+  //Event Routes
   Route::namespace('Event')->prefix('event')->name('event.')->group(function(){
-    Route::get('/agenda', 'EventController@index')->name('list');
+    Route::get('/agenda', 'CalendarController@index')->name('list');
+    Route::get('/eventos', 'EventController@loadEvents')->name('routeLoadEvents');
 });

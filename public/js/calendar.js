@@ -52,8 +52,10 @@ document.addEventListener('DOMContentLoaded', function() {
     eventDrop: function(event){
         alert('Drop');
         debugger;
-    }
+    },
+    events: routeEvents('routeLoadEvents'),
   });
   calendar.render();
+
 
 });

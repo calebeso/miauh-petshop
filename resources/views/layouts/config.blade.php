@@ -11,4 +11,5 @@
 
 <script src="{{ asset('assets/calendar/lib/main.js') }}"></script>
 <script src="{{ asset('assets/calendar/lib/locales-all.js') }}"></script>
+<script src="{{ asset('js/event.js') }}"></script>
 <script src="{{ asset('js/calendar.js') }}"></script>

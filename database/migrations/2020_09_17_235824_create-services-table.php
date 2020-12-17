@@ -16,6 +16,10 @@ class CreateServicesTable extends Migration
         Schema::create('services', function($table)
         {
             $table->id();
+            $table->string('title');
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->string('color');
             $table->string('description');
             $table->float('price');
             $table->timestamp('created_at')->nullable();
