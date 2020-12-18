@@ -33,7 +33,8 @@
     </div>
 
     <div id='calendar-wrap'>
-      <div id='calendar' data-route-load-events="{{ route('event.routeLoadEvents') }}"></div>
+      <div id='calendar' data-route-load-events="{{ route('event.routeLoadEvents') }}"
+      data-route-event-update="{{ route('event.routeEventUpdate') }}" ></div>
     </div>
 
   </div>

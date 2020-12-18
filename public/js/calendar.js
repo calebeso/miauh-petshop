@@ -38,9 +38,32 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     editable: true,
     droppable: true,
-    eventResize: true,
+    eventResize: function(element){
+      let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
+      let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
+      let newEvent = {
+        _method:'PUT',
+        id: element.event.id,
+        start: start, 
+        end: end
+      };
+
+      sendEvent(routeEvents('routeEventUpdate'), newEvent);
+    },
     locale: 'pt-br',
     navLinks: true,
+    eventDrop: function(element){
+      let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
+      let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
+      let newEvent = {
+        _method:'PUT',
+        id: element.event.id,
+        start: start, 
+        end: end
+      };
+
+      sendEvent(routeEvents('routeEventUpdate'), newEvent);
+    },
     drop: function(arg) {
       // is the "remove after drop" checkbox checked?
       if (document.getElementById('drop-remove').checked) {
