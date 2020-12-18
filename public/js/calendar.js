@@ -42,20 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
     locale: 'pt-br',
     navLinks: true,
     drop: function(arg) {
-      debugger;
       // is the "remove after drop" checkbox checked?
       if (document.getElementById('drop-remove').checked) {
         // if so, remove the element from the "Draggable Events" list
         arg.draggedEl.parentNode.removeChild(arg.draggedEl);
       }
     },
-    eventDrop: function(event){
-        alert('Drop');
-        debugger;
-    },
     events: routeEvents('routeLoadEvents'),
   });
   calendar.render();
-
-
 });

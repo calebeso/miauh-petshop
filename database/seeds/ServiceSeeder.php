@@ -12,12 +12,13 @@ class ServiceSeeder extends Seeder
      */
     public function run()
     {
+        Service::truncate();
 
         Service::create([
             'title' => 'Banho com remédio',
-            'start' => '2020-12-17 13:25:00',
-            'end' => '2020-12-17 15:30:00',
-            'color' => '#ffff',
+            'start' => '2020-12-17 00:00:00',
+            'end' => '2020-12-17 00:00:00',
+            'color' => '#049372',
             'description' => 'Banho com remédio', 
             'price' => 90.00
         ]); 
@@ -26,7 +27,7 @@ class ServiceSeeder extends Seeder
             'title' => 'Tosa',
             'start' => '2020-12-17 17:00:00',
             'end' => '2020-12-18 15:30:00',
-            'color' => '#ffff',
+            'color' => '#f89406',
             'description' => 'Tosa', 
             'price' => 60.00
         ]);

@@ -80,5 +80,5 @@ Route::namespace('Animal')->prefix('animal')->name('animal.')->group(function(){
   //Event Routes
   Route::namespace('Event')->prefix('event')->name('event.')->group(function(){
     Route::get('/agenda', 'CalendarController@index')->name('list');
-    Route::get('/eventos', 'EventController@loadEvents')->name('routeLoadEvents');
+    Route::get('/load-events', 'EventController@loadEvents')->name('routeLoadEvents');
 });
