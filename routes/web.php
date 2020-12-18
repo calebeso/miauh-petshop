@@ -82,4 +82,5 @@ Route::namespace('Animal')->prefix('animal')->name('animal.')->group(function(){
     Route::get('/agenda', 'CalendarController@index')->name('list');
     Route::get('/load-events', 'EventController@loadEvents')->name('routeLoadEvents');
     Route::put('/update-event', 'EventController@update')->name('routeEventUpdate');
+    Route::post('/store-event', 'EventController@store')->name('routeEventStore');
 });
