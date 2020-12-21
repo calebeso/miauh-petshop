@@ -83,6 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
       let end = moment(element.event.end).format("DD/MM/YYYY HH:mm:ss");
       $("#modalCalendar input[name='end']").val(end);
 
+      let price = element.event.extendedProps.price; 
+      $("#modalCalendar input[name='price']").val(price);
+
       let color = element.event.backgroundColor; 
       $("#modalCalendar input[name='color']").val(color);
 

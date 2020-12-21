@@ -36,6 +36,12 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="price" class="col-sm-4 col-form-label">Preço</label>
+                        <div class="col-sm-8">
+                            <input type="number" name="price" class="form-control" id="price">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="description" class="col-sm-4 col-form-label">Descrição</label>
                         <div class="col-sm-8">
                             <textarea type="description" name="description" cols="35" rows="4" id="description"></textarea>

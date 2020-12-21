@@ -2,6 +2,7 @@
 $(function( $ ){
         
         $('.date-time').mask('00/00/0000 00:00:00');
+
         $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -9,12 +10,17 @@ $(function( $ ){
     });
 
     $(".saveEvent").on("click", function(){
+
         let id = $("#modalCalendar input[name='id']").val();
   
         let title = $("#modalCalendar input[name='title']").val();
   
         let start = moment($("#modalCalendar input[name='start']").val(),"DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
   
+        let end = moment($("#modalCalendar input[name='end']").val(),"DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
+
+        let price = $("#modalCalendar input[name='price']").val();
+
         let color = $("#modalCalendar input[name='color']").val();
   
         let description = $("#modalCalendar textarea[name='description']").val();
@@ -23,6 +29,7 @@ $(function( $ ){
             title: title, 
             start: start, 
             end: end, 
+            price: price, 
             color: color, 
             description: description,
         };
