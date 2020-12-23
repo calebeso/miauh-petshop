@@ -1,9 +1,9 @@
-
 $(function( $ ){
-        
-        $('.date-time').mask('00/00/0000 00:00:00');
+    $('.date-time').mask('00/00/0000 00:00:00'); 
+});
 
-        $.ajaxSetup({
+$(function(){
+    $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
@@ -37,24 +37,26 @@ $(function( $ ){
         let route; 
         
         if(id == ''){
-            route = routeEvents('event.routeEventStore');
+            route = routeEvents('routeEventStore');
         }else{
-            route = routeEvents('event.routeEventUpdate');
+            route = routeEvents('routeEventUpdate');
             Event.id = id; 
             Event._method = 'PUT';
         }
 
-        sendEvent(route, Event);
+        sendEvent(route,Event);
 
     });
 });
 
-function sendEvent(route, data_){
 
+
+function sendEvent(route, data_){
+   
     $.ajax({
         url: route, 
-        data:data_, 
-        method:'POST',
+        data: data_, 
+        method: 'POST',
         dataType: 'json', 
         success:function (json) {
             if(json){
