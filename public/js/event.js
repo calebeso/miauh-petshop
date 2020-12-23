@@ -9,8 +9,9 @@ $(function(){
         }
     });
 
+    
     $(".saveEvent").on("click", function(){
-
+        
         let id = $("#modalCalendar input[name='id']").val();
   
         let title = $("#modalCalendar input[name='title']").val();

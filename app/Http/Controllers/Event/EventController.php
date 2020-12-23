@@ -10,7 +10,7 @@ use App\Model\Service;
 class EventController extends Controller
 {
    public function loadEvents(Request $request){
-    $returnedColumns = ['id', 'title', 'start', 'end', 'color', 'description'];
+    $returnedColumns = ['id', 'title', 'start', 'end', 'color', 'price', 'description'];
 
     $start = (!empty($request->start)) ? ($request->start) : ('');
     $end = (!empty($request->end)) ? ($request->end) : ('');

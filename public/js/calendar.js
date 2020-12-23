@@ -38,23 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     editable: true,
     droppable: true,
-    eventResize: function(element){
-      let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
-      let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
-      let newEvent = {
-        _method:'PUT',
-        id: element.event.id,
-        start: start, 
-        end: end
-      };
-
-      sendEvent(routeEvents('routeEventUpdate'), newEvent);
-    },
     locale: 'pt-br',
     navLinks: true,
     eventDrop: function(element){
       let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
       let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
+
       let newEvent = {
         _method:'PUT',
         id: element.event.id,
@@ -85,21 +74,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
       let price = element.event.extendedProps.price; 
       $("#modalCalendar input[name='price']").val(price);
-
+  
       let color = element.event.backgroundColor; 
       $("#modalCalendar input[name='color']").val(color);
 
       let description = element.event.extendedProps.description; 
       $("#modalCalendar textarea[name='description']").val(description);
-
     },
-    drop: function(arg) {
+    eventResize: function(element){
+      let start = moment(element.event.start).format("YYYY-MM-DD HH:mm:ss");
+      let end = moment(element.event.end).format("YYYY-MM-DD HH:mm:ss");
+      let newEvent = {
+        _method:'PUT',
+        id: element.event.id,
+        start: start, 
+        end: end
+      };
+
+      sendEvent(routeEvents('routeEventUpdate'), newEvent);
+    },
+/*     drop: function(arg) {
       // is the "remove after drop" checkbox checked?
       if (document.getElementById('drop-remove').checked) {
         // if so, remove the element from the "Draggable Events" list
         arg.draggedEl.parentNode.removeChild(arg.draggedEl);
       }
-    },
+    }, */
     dateClick: function(element){
 
       resetForm("#formEvent");
