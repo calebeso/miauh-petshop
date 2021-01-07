@@ -83,6 +83,10 @@ function loadErrors(response) {
     return boxAlert.replace(/\,/g,"<br/>");
 }
 
+function clearMessages(element){
+    $(element).text('');
+}
+
 function routeEvents(route) {
     return document.getElementById('calendar').dataset[route];
 }
