@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@extends('layouts.config')
 @section('content')
 
 @include('calendar.modal-calendar')
