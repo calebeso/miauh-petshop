@@ -24,13 +24,14 @@ class EventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required', 
+            'title' => 'required|min:3', 
         ];
     }
 
     public function messages(){
         return [ 
-            'title.required' => 'O titulo é obrigatório'
+            'title.required' => 'O titulo é obrigatório',
+            'title.min' => 'Titulo necessita pelo menos 3 caracteres!',
         ];
     }
 }

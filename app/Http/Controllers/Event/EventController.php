@@ -21,14 +21,14 @@ class EventController extends Controller
        return response()->json($events);
    }
 
-   public function store(Request $request)
+   public function store(EventRequest $request)
    {
        Service::create($request->all());
 
        return response()->json(true);
    }
 
-   public function update(Request $request)
+   public function update(EventRequest $request)
    {
        $event = Service::where('id', $request->id)->first();
        $event->fill($request->all());

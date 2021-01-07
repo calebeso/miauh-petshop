@@ -65,9 +65,22 @@ function sendEvent(route, data_){
             }
         },
         error: function(json){
-
-        }
+            let responseJSON = json.responseJSON.errors;
+            $(".message").html(loadErrors(responseJSON));        }
     });
+}
+
+function loadErrors(response) {
+
+    let boxAlert = `<div class="alert alert-danger">`;
+
+    for (let fields in response){
+        boxAlert += `<span>${response[fields]}</span><br/>`;
+    }
+
+    boxAlert += `</div>`;
+
+    return boxAlert.replace(/\,/g,"<br/>");
 }
 
 function routeEvents(route) {

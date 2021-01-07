@@ -9,6 +9,9 @@
                 </button>
             </div>
             <div class="modal-body">
+
+                <div class="message"></div>
+                
                 <form id="formEvent">
                     <div class="form-group row">
                         <label for="title" class="col-sm-4 col-form-label">Título</label>
