@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Model\Product;
+use App\Model\Category;
 use App\Model\Service;
 
 /*
@@ -44,6 +45,31 @@ Route::put('products/{id}', function(Request $request, $id) {
 
 Route::delete('products/{id}', function($id) {
     Product::find($id)->delete();
+
+    return 204;
+});
+
+Route::get('categories', function() {
+    return Category::all();
+});
+ 
+Route::get('categories/{id}', function($id) {
+    return Category::find($id);
+});
+
+Route::post('categories', function(Request $request) {
+    return Category::create($request->all);
+});
+
+Route::put('categories/{id}', function(Request $request, $id) {
+    $product = Category::findOrFail($id);
+    $product->update($request->all());
+
+    return $product;
+});
+
+Route::delete('categories/{id}', function($id) {
+    Category::find($id)->delete();
 
     return 204;
 });
