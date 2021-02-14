@@ -9,6 +9,24 @@
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
+                <span>{{__('Vendas')}}</span>
+            </h6>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('sale.list') }}">
+                    <span class="fa fa-shopping-basket"></span>
+                    {{__('Todas as vendas')}}
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('sale.list') }}">
+                    <span class="fa fa-cart-plus"></span>
+                    {{__('Realizar uma venda')}}
+                </a>
+            </li>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 font-weight-bold">
                 <span>{{__('Clientes')}}</span>
             </h6>
             <li class="nav-item">

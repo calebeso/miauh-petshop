@@ -68,4 +68,8 @@ class User extends Authenticatable
 
         return $this->api_token;
     }
+
+    public function sale(){
+        return $this->belongsTo('App\Model\Sale');
+    }
 }

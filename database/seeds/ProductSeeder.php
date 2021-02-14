@@ -19,21 +19,24 @@ class ProductSeeder extends Seeder
             'description' => 'Alimento para gato Premium',
             'price' => '77.00',
             'category_id' => 1,
-            'status' => 1
+            'status' => 1, 
+            'quantity' => 16
         ]);
 
         $product2 = Product::create([
             'description' => 'Alimento para cachorro',
             'price' => '57.00',
             'category_id' => 2,
-            'status' => 1
+            'status' => 1,
+            'quantity' => 10
         ]);
 
         $product3 = Product::create([
             'description' => 'Casinha para gato',
             'price' => '770.00',
             'category_id' => 3,
-            'status' => 0
+            'status' => 0,
+            'quantity' => 3
         ]); 
         
     }

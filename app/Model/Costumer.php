@@ -16,4 +16,8 @@ class Costumer extends Model
     {
         return $this->hasMany('App\Model\Animal', 'costumer_id', 'id');
     }
+
+    public function sale(){
+        return $this->belongsTo('App\Model\Sale');
+    }
 }

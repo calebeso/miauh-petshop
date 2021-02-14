@@ -76,3 +76,13 @@ Route::namespace('Animal')->prefix('animal')->name('animal.')->group(function(){
     Route::get('/editar-animal/{animal}', 'AnimalController@edit')->name('edit');
     Route::put('/editar-animal/{animal}', 'AnimalController@update')->name('update');
 });
+
+  //Animal Routes
+  Route::namespace('Sales')->prefix('venda')->name('sale.')->group(function(){
+    Route::get('/vendas', 'SaleController@index')->name('list');
+    Route::get('/cadastrar', 'SaleController@createOrder')->name('create');
+    /* Route::post('/animais', 'AnimalController@store')->name('store');
+    Route::delete('/animais/{id}', 'AnimalController@destroy')->name('delete');
+    Route::get('/editar-animal/{animal}', 'AnimalController@edit')->name('edit');
+    Route::put('/editar-animal/{animal}', 'AnimalController@update')->name('update'); */ 
+});
