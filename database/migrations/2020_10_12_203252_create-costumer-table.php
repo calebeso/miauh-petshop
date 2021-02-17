@@ -30,6 +30,8 @@ class CreateCostumerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('costumers');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::drop('costumers');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }
