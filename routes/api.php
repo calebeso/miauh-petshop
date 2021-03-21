@@ -25,30 +25,11 @@ Route::get('/user', function (Request $request) {
 
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('products', function() {
-    return Product::all();
-});
- 
-Route::get('products/{id}', function($id) {
-    return Product::find($id);
-});
-
-Route::post('products', function(Request $request) {
-    return Product::create($request->all);
-});
-
-Route::put('products/{id}', function(Request $request, $id) {
-    $product = Product::findOrFail($id);
-    $product->update($request->all());
-
-    return $product;
-});
-
-Route::delete('products/{id}', function($id) {
-    Product::find($id)->delete();
-
-    return 204;
-});
+Route::get('products', 'Products\ProductController@index');
+Route::get('products/{product}', 'Products\ProductController@show');
+Route::post('products', 'Products\ProductController@store');
+Route::put('products/{product}', 'Products\ProductController@update');
+Route::delete('products/{product}', 'Products\ProductController@delete');
 
 Route::get('categories', function() {
     return Category::all();
