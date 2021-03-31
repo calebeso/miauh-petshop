@@ -20,7 +20,7 @@ class ServicesController extends Controller
 
     public function store(Request $request)
     {
-       $service = Service::create($request->all());
+       $service = Service::save();
        return response()->json($service, 201);
 
     }

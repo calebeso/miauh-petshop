@@ -58,6 +58,12 @@ Route::delete('categories/{id}', function($id) {
 
 // Services API routes 
 
+Route::get('services', 'Services\ServicesController@index');
+Route::get('services/{service}', 'Services\ServicesController@show');
+Route::post('services', 'Services\ServicesController@store');
+Route::put('services/{service}', 'Services\ServicesController@update');
+Route::delete('services/{service}', 'Services\ServicesController@delete');
+
 Route::get('services', function() {
     return Service::all();
 });
@@ -67,7 +73,12 @@ Route::get('services/{id}', function($id) {
 });
 
 Route::post('services', function(Request $request) {
-    return Service::create($request->all);
+    $data = $request->all();
+    return Service::create([
+        'description' => $data['description'],
+        'price' => $data['price'],
+    ]);
+   
 });
 
 Route::put('services/{id}', function(Request $request, $id) {
